@@ -23,8 +23,9 @@ def solve_brute_force(arr):
     return max_profict,max_start,max_end
 
 max1,start1,end1=solve_brute_force(data)
+print(f"暴力枚举法")
 print(f"最大净收益的放电区间为{start1}:00 到 {end1+1}：00")
-print(f"最大收益为{max1:.1f}")
+print(f"最大收益为{max1:.1f}\n")
 
 
 ##分治法
@@ -73,8 +74,9 @@ def solve_divide_and_conquer(arr, low, high):
         return cross_sum,cross_low,cross_high
     
 max2,start2,end2=solve_divide_and_conquer(data,0,len(data)-1)
+print(f"分治法")
 print(f"最大净收益的放电区间为{start2}:00 到 {end2+1}:00")
-print(f"最大收益为{max2:.1f}")
+print(f"最大收益为{max2:.1f}\n ")
 
 ##dp（动态规划）法
 def solve_kadane(arr):
@@ -99,5 +101,6 @@ def solve_kadane(arr):
     return max_so_far, max_start, max_end
 
 max3,start3,end3= solve_kadane(data)
+print(f"动态规划法")
 print(f"最大净收益的区间为{start3}:00 到 {end3 +1}:00")
-print(f"最大净收益为{max3:.1f}")
+print(f"最大净收益为{max3:.1f}\n")
