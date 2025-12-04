@@ -38,6 +38,7 @@ def find_max_crossing(arr,low, mid, high):
         if current_sum > max_left:
             max_left = current_sum
             max_mid_left = i
+
     #右半部分最大值
     max_right = float('-inf')
     current_sum = 0
@@ -72,11 +73,10 @@ def solve_divide_and_conquer(arr, low, high):
         return cross_sum,cross_low,cross_high
     
 max2,start2,end2=solve_divide_and_conquer(data,0,len(data)-1)
-
-
 print(f"最大净收益的放电区间为{start2}:00 到 {end2+1}:00")
 print(f"最大收益为{max2:.1f}")
 
+##dp（动态规划）法
 def solve_kadane(arr):
     max_so_far=float('-inf')
     current_sum=0
@@ -99,7 +99,5 @@ def solve_kadane(arr):
     return max_so_far, max_start, max_end
 
 max3,start3,end3= solve_kadane(data)
-
-
-print(f"最大净收益的区间为{start3}:00 到 {end3}:00")
-print(f"最大净收益为{max3}")
+print(f"最大净收益的区间为{start3}:00 到 {end3 +1}:00")
+print(f"最大净收益为{max3:.1f}")
