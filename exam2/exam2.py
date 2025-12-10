@@ -35,11 +35,11 @@ count, result = solve_greedy(data,D)
 print(f"————贪心算法分段结果———")
 print(f"最少分段数为：{count}")
 print(f"分段结果为：{result[3:7]}")
-#动态规划算法
 
+
+#动态规划算法
 def solve_dp(soc_data,Max_diff):
     n = len(soc_data)
-    count = 0
     dp = [float('inf')]*(n+1)
     dp[0] = 0
 
@@ -49,9 +49,15 @@ def solve_dp(soc_data,Max_diff):
         for j in range(i-1,-1,-1):
             current_min = min(current_min,soc_data[j])
             current_max = max(current_max,soc_data[j])
-            if current_max - current_min >= Max_diff:
+            if current_max - current_min > Max_diff:
                 break
-            if dp[i] + 1<=dp[j]:
-                dp[i] = dp[j]
+            if dp[j] + 1<= dp[i]:
+                dp[i] = dp[j]+1
+    return dp[n]
+
+count = solve_dp(data , D)
+print(f"----dp 算法----")
+print(f"最少段数为：{count}")
+
 
 
