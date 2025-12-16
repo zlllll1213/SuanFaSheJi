@@ -18,7 +18,7 @@ def solve_greedy(soc_data, Max_diff):
     # 如果数据为空，返回0段和空列表
     if not soc_data:
         return 0, []
-    segements = []
+    segments = []
     current_segment = [soc_data[0]]
     current_min = soc_data[0]
     current_max = soc_data[0]
@@ -33,13 +33,13 @@ def solve_greedy(soc_data, Max_diff):
             current_max = new_max
         # 否则开始新的段
         else:
-            segements.append(current_segment)
+            segments.append(current_segment)
             current_segment = [x]
             current_min = x
             current_max = x
     # 将最后一段添加到结果中
-    segements.append(current_segment)
-    return len(segements), segements
+    segments.append(current_segment)
+    return len(segments), segments
 
 
 count, result = solve_greedy(data, D)
